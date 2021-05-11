@@ -23,7 +23,6 @@ const changeColorBody = (arr) => {
 let rotationColorsTemp;
 
 const switchinColorsBody = () => {
-  console.log("START");
   if (startBtn.dataset.action === "start") {
     startBtn.dataset.action = "changing-now";
     rotationColorsTemp = setInterval(changeColorBody, 1000, colors);
@@ -31,7 +30,6 @@ const switchinColorsBody = () => {
 };
 
 const stopSwitching = () => {
-  console.log("STOP");
   if (startBtn.dataset.action === "changing-now") {
     clearInterval(rotationColorsTemp);
     startBtn.dataset.action = "start";
