@@ -21,19 +21,18 @@ const changeColorBody = (arr) => {
 };
 
 let rotationColorsTemp;
+let unlockerBtnStart = true;
 
 const switchinColorsBody = () => {
-  if (startBtn.dataset.action === "start") {
-    startBtn.dataset.action = "changing-now";
+  if (unlockerBtnStart) {
+    unlockerBtnStart = false;
     rotationColorsTemp = setInterval(changeColorBody, 1000, colors);
   }
 };
 
 const stopSwitching = () => {
-  if (startBtn.dataset.action === "changing-now") {
-    clearInterval(rotationColorsTemp);
-    startBtn.dataset.action = "start";
-  }
+  clearInterval(rotationColorsTemp);
+  unlockerBtnStart = true;
 };
 
 startBtn.addEventListener("click", switchinColorsBody);
