@@ -21,18 +21,16 @@ const changeColorBody = (arr) => {
 };
 
 let rotationColorsTemp;
-let unlockerBtnStart = true;
 
 const switchinColorsBody = () => {
-  if (unlockerBtnStart) {
-    unlockerBtnStart = false;
-    rotationColorsTemp = setInterval(changeColorBody, 1000, colors);
-  }
+  rotationColorsTemp = setInterval(changeColorBody, 1000, colors);
+  startBtn.disabled = true;
 };
 
 const stopSwitching = () => {
   clearInterval(rotationColorsTemp);
-  unlockerBtnStart = true;
+  console.dir(startBtn);
+  startBtn.disabled = false;
 };
 
 startBtn.addEventListener("click", switchinColorsBody);
